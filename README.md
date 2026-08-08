@@ -54,7 +54,7 @@ xcodebuild -project Firehose.xcodeproj -scheme Firehose \
 There is no filter UI. Rules live in
 `Sources/Firehose/Services/Killfile.swift` as a compile-time constant — edit
 and rebuild. Phrase rules match on token boundaries (an `AI` rule will not
-kill "Musk"); domain rules match label suffixes (`wikipedia.org` kills
+kill "Ukraine"); domain rules match label suffixes (`wikipedia.org` kills
 `en.wikipedia.org` but not `notwikipedia.org`).
 
 ## License
