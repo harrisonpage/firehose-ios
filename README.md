@@ -2,9 +2,11 @@
 
 Blog post: [Hacker News Firehose for iOS](https://blog.harrison.page/firehose)
 
-Saturday morning project: Ask Claude Fable to create a custom app for browsing Hacker News by `/new`
+## Saturday Morning Project
 
-Claude was able to one-shot this given a spec and screenshots. It used about 12% of my Claude Fable credits for coding and 26% of a session where I used Opus 5 to go back-and-forth over a spec and design.
+> Ask Claude Fable to create a custom app for browsing Hacker News by `/new`
+
+Claude was able to one-shot this given a spec and screenshots.
 
 Source here: [github.com/harrisonpage/firehose-ios](https://github.com/harrisonpage/firehose-ios)
 
