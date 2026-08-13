@@ -10,6 +10,8 @@ enum KillRule {
 enum Killfile {
     static let rules: [KillRule] = [
         .domain("wikipedia.org"),
+        .domain("twitter.com"),
+        .domain("x.com"),
         // add rules here and rebuild
     ]
 
