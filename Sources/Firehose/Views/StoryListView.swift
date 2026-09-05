@@ -50,21 +50,24 @@ struct StoryListView: View {
 
     private var header: some View {
         HStack(spacing: 8) {
-            Text("FIREHOSE")
+            Text("HACKER NEWS FIREHOSE")
                 .font(Theme.wordmark)
                 .kerning(2.4)
-                .foregroundStyle(Theme.metaGrey)
+                .foregroundStyle(Theme.headerInk)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
             Text("\(Version.version)/\(Version.build)")
                 .font(Theme.stamp)
                 .kerning(0.66)
-                .foregroundStyle(Theme.metaGrey)
+                .foregroundStyle(Theme.headerInk)
+                .lineLimit(1)
             Spacer(minLength: 0)
             Button {
                 showAbout = true
             } label: {
                 Image(systemName: "info.circle")
                     .font(.system(size: 17, weight: .medium))
-                    .foregroundStyle(Theme.metaGrey)
+                    .foregroundStyle(Theme.headerInk)
                     .frame(width: 36, height: 36)
                     .contentShape(Rectangle())
             }
@@ -74,6 +77,7 @@ struct StoryListView: View {
         .padding(.leading, 16)
         .padding(.trailing, 8)
         .frame(height: 36)
+        .background(Theme.headerFill.ignoresSafeArea(edges: .top))
         .overlay(alignment: .bottom) {
             Rectangle().fill(Theme.headerRule).frame(height: 2)
         }

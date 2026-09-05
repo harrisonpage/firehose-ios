@@ -13,6 +13,9 @@ enum Theme {
     static let dots = dynamic(light: 0xBAB6B6, dark: 0x56514E)
     static let rowRule = dynamic(light: 0x201E1D, lightAlpha: 0.11, dark: 0xFFFFFF, darkAlpha: 0.07)
     static let headerRule = dynamic(light: 0x201E1D, lightAlpha: 0.35, dark: 0xFFFFFF, darkAlpha: 0.13)
+    /// Hacker News orange; the header bar reads white-on-orange in both appearances.
+    static let headerFill = Color(rgb: 0xFF6600)
+    static let headerInk = Color.white
     static let inset = dynamic(light: 0xEAE9E9, dark: 0x1C1A1E)
     static let accent = Color(rgb: 0xEC3013)
     static let accentText = dynamic(light: 0xAE1800, dark: 0xFF563C)
