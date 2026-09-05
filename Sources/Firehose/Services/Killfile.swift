@@ -14,6 +14,7 @@ enum Killfile {
         .domain("medium.com"),
         .domain("whitehouse.gov"),
         .domain("twitter.com"),
+        .domain("wsj.com"),
         .domain("x.com"),
         // add rules here and rebuild
     ]
