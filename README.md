@@ -42,6 +42,37 @@ Open `Firehose.xcodeproj` in Xcode, or:
 ./build.sh device       # generic iOS device build
 ```
 
+### Building over SSH
+
+A device build has to sign the app, and the signing key lives in your login
+keychain. In a desktop session that keychain is already unlocked; over SSH it
+is locked, and there is no window server to draw the unlock prompt on. The
+certificate is still readable — `security find-identity` lists it — so the
+setup looks fine right up until the build fails on:
+
+```
+<app>/Firehose.debug.dylib: errSecInternalComponent
+Command CodeSign failed with a nonzero exit code
+```
+
+`./build.sh device` notices the locked keychain and asks for your macOS
+password before starting the build. To unlock ahead of time, or from a shell
+that cannot prompt:
+
+```
+security unlock-keychain ~/Library/Keychains/login.keychain-db
+```
+
+The unlock holds until the keychain relocks — idle timeout, sleep, or logout —
+not just for one build. Set `KEYCHAIN_PASSWORD` if nothing is around to type
+it. If signing still fails the same way, the key is asking for a confirmation
+nobody can click; grant the codesign tools standing access once:
+
+```
+security set-key-partition-list -S apple-tool:,apple: -s \
+    -k <password> ~/Library/Keychains/login.keychain-db
+```
+
 Tests (killfile matching logic):
 
 ```
