@@ -1,6 +1,6 @@
 # Firehose
 
-Blog post: [Hacker News Firehose for iOS](https://blog.harrison.page/firehose)
+Blog post: [Hacker News Firehose for iOS](https://blog.harrison.page/hacker-news-firehose-ios/)
 
 ## Saturday Morning Project
 
@@ -95,6 +95,6 @@ SIL Open Font License.
 
 ## Thank Yous
 
-* [App Icon Generators](www.appicongenerators.com)
+* [App Icon Generators](https://www.appicongenerators.com)
 * [Hackernews SVG Vector](https://www.svgrepo.com/svg/349397/hackernews) from the [Tiny App Icons Collection](https://www.svgrepo.com/collection/tiny-app-icons/)
 * Data comes from the [Algolia HN Search API](https://hn.algolia.com/api/v1)
