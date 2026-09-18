@@ -5,8 +5,10 @@ BUNDLE_ID="page.harrison.Firehose"
 
 find_device() {
     local name="$1"
+    # Older devicectl prints a CoreDevice UUID (8-4-4-4-12); Xcode 27 prints
+    # the hardware UDID (8-16). --device accepts either.
     xcrun devicectl list devices 2>&1 | awk -v name="$name" \
-        'tolower($1) == tolower(name) { match($0, /[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}/); if (RSTART) print substr($0, RSTART, RLENGTH) }'
+        'tolower($1) == tolower(name) { match($0, /[0-9A-F]{8}-([0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}|[0-9A-F]{16})/); if (RSTART) print substr($0, RSTART, RLENGTH) }'
 }
 
 deploy_to_device() {
