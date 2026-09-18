@@ -113,10 +113,9 @@ struct StoryListView: View {
             .contextMenu {
                 menuItems(for: story)
             } preview: {
-                UnfurlCard(story: story, state: store.metadata.state(for: story))
+                UnfurlCard(story: story, metadata: store.metadata)
             }
             .onAppear {
-                store.metadata.prefetch(story)
                 if store.shouldLoadOlder(after: story) {
                     Task { await store.loadOlder() }
                 }

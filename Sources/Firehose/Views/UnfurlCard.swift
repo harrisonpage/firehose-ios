@@ -4,9 +4,14 @@ import SwiftUI
 /// top, then a 90pt text block. The card must never resize between states.
 struct UnfurlCard: View {
     let story: Story
-    let state: UnfurlState
+    let metadata: MetadataCache
 
     @Environment(\.colorScheme) private var colorScheme
+
+    /// Read from the cache inside this view's own body: context-menu previews
+    /// are hosted separately, and a snapshot passed in by the parent may not
+    /// re-render the card when the fetch lands.
+    private var state: UnfurlState { metadata.state(for: story) }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -16,6 +21,7 @@ struct UnfurlCard: View {
         .frame(width: 320, height: 230)
         .background(Theme.cardSurface)
         .border(Theme.cardBorder, width: colorScheme == .dark ? 1 : 2)
+        .onAppear { metadata.fetchIfNeeded(story) }
     }
 
     @ViewBuilder

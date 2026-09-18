@@ -20,10 +20,11 @@ final class MetadataCache {
         states[story.id] ?? .idle
     }
 
-    /// Kicked off from each row's onAppear so the fetch has usually landed by
-    /// the time a headline is interesting enough to long-press. Entries that
-    /// are loading, loaded, or failed are never re-requested within a session.
-    func prefetch(_ story: Story) {
+    /// Kicked off when the long-press preview appears, never while scrolling:
+    /// the app only contacts a story's site once the user asks to see it.
+    /// Entries that are loading, loaded, or failed are never re-requested
+    /// until the next refresh clears the cache.
+    func fetchIfNeeded(_ story: Story) {
         guard states[story.id] == nil else { return }
         states[story.id] = .loading
         Task { await fetch(story) }

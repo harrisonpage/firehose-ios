@@ -30,7 +30,7 @@ The app talks to one external service: the **Algolia HN Search API** (`hn.algoli
 
 * Drop any headline where `url` is nil effectively removing Ask HN and text-only posts
 * Killfile support by word or hostname (currently hardcoded)
-* Link previews formed with available Open Graph metadata on long-press
+* Link previews formed with available Open Graph metadata on long-press — a story's page is fetched only when you long-press it, never while scrolling
 * Menu items: Add to Reading List, Share, Open in Safari
 
 ## Building
